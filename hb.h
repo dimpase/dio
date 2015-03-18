@@ -6,6 +6,7 @@
  **
  **                    headers file 
 * ************************************************************************ */
+#include <stdlib.h>
 
 typedef struct _eq { /* $\sum_1^n a_i + \sum_1^m b_i = c$ */
   int n;             /* $a_i, b_i >0$, $c>=0$             */

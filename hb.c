@@ -119,6 +119,7 @@ int hb(eq *e, int **sols, int savesols) /* return number elts in the basis; */
 		    }
 		}
 	    cont:
+            ;
 	    }
 	}
     }
@@ -238,6 +239,7 @@ int ismsol(eq *e, int bound[], int sol[], struct step p[], int mark[])
 		    }
 		}
 	    cont:
+            ;
 	    }
 	}
     }
