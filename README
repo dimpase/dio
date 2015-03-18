@@ -1,0 +1,140 @@
+	Hilbert bases package version 0.1 (experimental)
+
+			 Copyright (C)	1995 
+					Dmitrii V. Pasechnik
+					RIACA, Amsterdam, The Netherlands
+
+This software is freely avaliable for non-commercial use.
+	...THERE IS NO WARRANTY WHATSOEVER...
+
+Please address all the questions, comments, suggestions, bug reports, flames,
+to	d.pasechnik@its.tudelft.nl
+
+Please let me know if you install and use the progarms.
+
+If you publish a result obtained using these programs, please mention
+this. 
+
+A preprint describing the progarms will be available in early
+1996; the package will be presented at MEGA-96 conference to be held 
+at Eindhoven University of Technology, The Netherlands
+
+-------------------------------------------------------------------
+INSTALLATION AND USAGE:
+We assume you have a UNIX system equipped with GNU C compiler, and
+that you have downloaded the source code of the package in a directory
+which will be called 'the current directory 
+
+To compile the progams, type 'make'. 
+See the file Makefile for more details.
+
+Once you've succeeded in it, you have two executable programs in the
+current directory: oneeq.exe and systeq.exe
+
+-------------------------------------------------------------------------
+oneeq.exe 
+*********
+finds the Hilbert basis (i.e. the minimal set of generators
+of the monoid of the nonnegative solutions) of one linear equation 
+$\sum_{i=1}^n a_i x_i + \sum_{j=1}^m b_j y_j = c$
+where a_i, b_j are greater than 0 and c is nonnegative.
+
+It accepts (at most) one command-line argument, namely the name of the
+file to output the elements of the basis computed.
+
+The format of the input file is as follows:
+
+prtlev 
+save
+n
+m
+c
+a_i
+b_j
+
+where prtlev monitors the level of information shown during the
+execution time (0-minimal, >=5 - maximal);
+
+save is an integer telling the program to store ( save>0 ) solutions
+or not to store them (save=0)
+
+Example:
+the equation $x_1+3x_2-2y_1-2y_2=1$
+the input file (let it be named (and to be in the current directory) 'inp0'):
+0
+2
+2
+1
+1 3
+2 2
+
+Then the call
+oneeq.exe out0 <inp0
+will create the file named 'out0' in the current directory containing
+the elements of the basis.
+
+Similarly, the call
+oneeq.exe <inp0
+will print the basis on the standard output.
+
+NOTE: It is straightforward to add features allowing to restrict
+ourselves to the elements of the basis satisfying certain restrictions
+on the multidegree (i.e. either on certain entries or on the total
+degree). It should be done one day.
+
+
+-------------------------------------------------------------------------
+systeq.exe
+**********
+finds the Hilbert basis 
+of a system of linear equations $Ax=0$, where $A$ is an n x m integer
+matrix.
+
+It accepts (at most) one command-line argument, namely the name of the
+file to output the elements of the basis computed.
+
+The format of the input file is as follows:
+
+prtlev 
+n
+m
+a_ij
+
+
+where prtlev monitors the level of information shown during the
+execution time (0-minimal, >=5 - maximal);
+
+Example:
+the equations 
+$x_1- x_2+ y_1- y_2=0$
+$x_1+3x_2-2y_1-2y_2=0$
+the input file (let it be named (and to be in the current directory) 'inp1'):
+0
+2
+4
+1 -1 1 -1
+1 3 -2 -2
+
+Then the call
+systeq.exe out1 <inp1
+will create the file named 'out1' in the current directory containing
+the elements of the basis.
+
+Similarly, the call
+systeq.exe <inp1
+prints the basis on the standard output.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
