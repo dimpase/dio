@@ -66,7 +66,7 @@ int hb(eq *e, int **sols, int savesols) /* return number elts in the basis; */
       if (!p[lp].node && lp) /* found a solution */
 	{
 	    ntests++;
-	  if (ismsol(e,sol,sol_t,p_t,mark_t)) 
+	  if (e->m==0 || ismsol(e,sol,sol_t,p_t,mark_t)) 
 	    saves(savesols, &solmax, lsol, ++nsol, sol, sols);
 	  goto getnext;
 	}
@@ -84,7 +84,7 @@ int hb(eq *e, int **sols, int savesols) /* return number elts in the basis; */
 	      p[lp+1].node=p[lp].node+sign*x[w];
 	      mark[p[++lp].node]=1;
 	      ntests++;
-	      if (!ismsol(e,sol,sol_t,p_t,mark_t)) goto getnext;
+	      if (e->m>0 && !ismsol(e,sol,sol_t,p_t,mark_t)) goto getnext;
 	    }
 	  else 
 	  getnext:
@@ -106,7 +106,7 @@ int hb(eq *e, int **sols, int savesols) /* return number elts in the basis; */
 		      p[lp].node=p[lp-1].node+sign*x[w];
 		      mark[p[lp].node]=1;
 		      ntests++;
-		      if (!ismsol(e,sol,sol_t,p_t,mark_t)) goto getnext;
+		      if (e->m>0 && !ismsol(e,sol,sol_t,p_t,mark_t)) goto getnext;
 		      goto cont;
 		    }
 		  else 
