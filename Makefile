@@ -18,7 +18,7 @@
 ## 'make allclean' deletes also *.exe files.
 ##
 CC=gcc
-CFLAGS=-O -g
+CFLAGS=-O -g -pg
 EXT=.exe
 
 all : oneeq systeq

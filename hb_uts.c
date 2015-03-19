@@ -127,8 +127,9 @@ eq *injcom(int n, int v[], int c)
 int *getmat(FILE *file, int n, int m)
 {
   int i, j, *a, *p;
-  if (n<=0 || m<=0) 
+  if (n<0 || m<0)
     { fprintf(stderr,"\n wrong dimesions in getmat\n"); exit(1);}
+  if (m*n==0) return NULL;
   if (NULL==(a=(int *)calloc(n*m,sizeof(int)))) oomem("getmat");
 
   for (i=0, p=a; i<n; i++)
@@ -147,15 +148,16 @@ int *getmat(FILE *file, int n, int m)
 void outmat(FILE *file, int n, int m, int *a)
 {
   int i, j, *p;
-  if (n<=0 || m<=0) 
+  if (n<0 || m<0)
     { fprintf(stderr,"\n wrong dimesions in outmat\n"); exit(1);}
-
-  for (i=0, p=a; i<n; i++)
+  if (n*m)
+   {for (i=0, p=a; i<n; i++)
     {    
       fprintf(file,"\n");
       for (j=0; j<m; j++) fprintf(file,"%4d",*p++);
     }
-  fprintf(file,"\n");
+   }
+   fprintf(file,"\n");
 } 
 
 

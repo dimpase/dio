@@ -20,7 +20,7 @@ typedef struct _eq { /* $\sum_1^n a_i + \sum_1^m b_i = c$ */
 /* each noneg. sol. of eq is given by $v+\sum_{i=1}^{ns_hom} t_i u_i$,
    where $t_i>=0$, $u_i\in s_hom$, $v\in s$ if $c\ne 0$, otherwise $v=0$ */
 
-#define SOLCHUNK  1000 /* (re)allocate memory for solutions in these
+#define SOLCHUNK  20000 /* (re)allocate memory for solutions in these
 			   bits (the number stands for # of solutions */
 
 int hb(eq *, int **, int), nf(int, int), nexpa(int, int *, int);

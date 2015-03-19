@@ -24,10 +24,15 @@ current directory: oneeq.exe and systeq.exe
 -------------------------------------------------------------------------
 oneeq.exe 
 *********
-finds the Hilbert basis (i.e. the minimal set of generators
+For c=0, finds the Hilbert basis (i.e. the minimal set of generators
 of the monoid of the nonnegative solutions) of one linear equation 
 $\sum_{i=1}^n a_i x_i + \sum_{j=1}^m b_j y_j = c$
 where a_i, b_j are greater than 0 and c is nonnegative.
+
+For c>0, finds all the minimal solutions to the equation.
+(minimal in the sense that the solution cannot be obtained
+as a sum of another solution and a nontrivial solution to the
+homogeneous equation).
 
 It accepts (at most) one command-line argument, namely the name of the
 file to output the elements of the basis computed.
@@ -44,6 +49,8 @@ b_j
 
 where prtlev monitors the level of information shown during the
 execution time (0-minimal, >=5 - maximal);
+
+m can be 0; in this case, all the solutions are minimal.
 
 save is an integer telling the program to store ( save>0 ) solutions
 or not to store them (save=0)
