@@ -26,7 +26,7 @@ oneeq.exe
 *********
 For c=0, finds the Hilbert basis (i.e. the minimal set of generators
 of the monoid of the nonnegative solutions) of one linear equation 
-$\sum_{i=1}^n a_i x_i + \sum_{j=1}^m b_j y_j = c$
+$\sum_{i=1}^n a_i x_i - \sum_{j=1}^m b_j y_j = c$
 where a_i, b_j are greater than 0 and c is nonnegative.
 
 For c>0, finds all the minimal solutions to the equation.
